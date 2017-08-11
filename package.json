@@ -1,6 +1,6 @@
 {
   "name": "meet-ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "mobile ui components for Vue.js",
   "author": "nickel@live.cn",
   "main": "src/index.js",
@@ -26,14 +26,14 @@
     "build": ""
   },
   "dependencies": {
-    "vue": "^2.4.2",    
-    "vue-router": "^2.7.0"    
+    "vue": "^2.4.2",
+    "vue-router": "^2.7.0"
   },
   "peerDependencies": {
     "vue": "^2.4.2"
   },
   "devDependencies": {
-    "html-webpack-plugin": "^2.30.1",    
+    "html-webpack-plugin": "^2.30.1",
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.1",
     "css-loader": "^0.28.4",
