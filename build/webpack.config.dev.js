@@ -4,6 +4,7 @@ const merge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const px2rem = require('postcss-px2rem');
+
 const production = process.env.NODE_ENV === 'production';
 
 const resolve = function resolve(dir) {
@@ -42,8 +43,8 @@ const vueLoaderConfig = {
   loader: 'vue-loader',
   options: {
     loaders: {
-      // css: vueStyleLoader('css', { extract: true }),
       css: 'vue-style-loader!css-loader',
+      // postcss: 'vue-style-loader!css-loader!postcss-loader'
       postcss: vueStyleLoader('postcss', { extract: true }),
     },
     postcss: [px2rem({ remUnit: 37.5 })]

@@ -38,14 +38,17 @@ export default {
 </script>
 
 <style>
+
 .mp-switch {
   display: flex;
   align-items: center;
   position: relative;
 }
+
 .mp-switch-input {
   display: none;
 }
+
 .mp-switch-box {
   display: inline-block;
   position: relative;

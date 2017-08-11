@@ -1,13 +1,12 @@
 const express = require('express');
 const webpack = require('webpack');
 const path = require('path');
-const config = require('./webpack.config.dev');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
+
+const config = require('./webpack.config.dev');
 const log = console.log;
-
 const app = express();
-
 const compiler = webpack(config);
 
 log('starting');
@@ -15,7 +14,7 @@ log('starting');
 const devMiddleware = webpackDevMiddleware(compiler, {
   contentBase: path.resolve(__dirname, '../example'),
   publicPath: config.output.publicPath,
-  quiet: false
+  quiet: true
 });
 
 const hotMiddleware = webpackHotMiddleware(compiler, {
@@ -39,6 +38,7 @@ const port = 5000;
 const uri = `http://localhost:${port}`;
 
 let _resolve;
+
 const readyPromise = new Promise( resolve => {
   _resolve = resolve;
 });
@@ -48,7 +48,7 @@ devMiddleware.waitUntilValid(() => {
   _resolve();
 });
 
-const server = app.listen(port, (s) => {
+const server = app.listen(port, () => {
   log('server listening');
 });
 
