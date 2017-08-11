@@ -1,11 +1,11 @@
-import Button from '@/components/button';
-import Toast from '@/components/toast';
-import Indicator from '@/components/indicator';
-import Alert from '@/components/alert';
-import Confirm from '@/components/confirm';
-import Modal from '@/components/modal';
-import Row from '@/components/row';
-import Switch from '@/components/switch';
+import Button from './components/button';
+import Toast from './components/toast';
+import Indicator from './components/indicator';
+import Alert from './components/alert';
+import Confirm from './components/confirm';
+import Modal from './components/modal';
+import Row from './components/row';
+import Switch from './components/switch';
 
 const Components = {
   Button,
