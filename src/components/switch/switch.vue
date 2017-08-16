@@ -61,8 +61,8 @@ export default {
 }
 
 .mp-switch-input:checked+.mp-switch-box {
-  border-color: #cccccc;
-  background-color: #cccccc;
+  border-color: #FF74B9;
+  background-color: #FF74B9;
 }
 
 .mp-switch-box:before, .mp-switch-box:after{

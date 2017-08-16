@@ -1,6 +1,6 @@
 <template>
  <transition name="mp-modal">
-   <div class="mp-modal" v-show="visible"> 
+   <div class="mp-modal" v-show="visible" @click="onClick"> 
    </div>
  </transition> 
 </template>
@@ -11,6 +11,11 @@ export default {
     visible: {
       type: Boolean,
       default: false
+    }
+  },
+  methods: {
+    onClick(e) {
+      this.$emit('click', e, this);
     }
   }
 }

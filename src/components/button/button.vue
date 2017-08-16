@@ -4,6 +4,7 @@
     :autofocus="autofocus"
     :type="nativeType"
     class="mp-button"
+    :class="customClass"
     @click="handleClick"
   >
     <span v-if="$slots.default"><slot></slot></span>
@@ -14,6 +15,9 @@
     name: 'MPButton',
     componentName: 'MPButton',
     props: {
+      customClass: {
+        type: [String, Array]
+      },
       type: {
         type: String,
         default: 'default'

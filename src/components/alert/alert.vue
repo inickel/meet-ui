@@ -1,8 +1,10 @@
 <template>
   <transition>
     <div class="mp-alert"  v-show="visible">
-      <div class="mp-alert-header" style="display:none">header</div>
-      <div class="mp-alert-content">content</div>
+      <div class="mp-alert-header" style="display:none">{{header}}</div>
+      <div class="mp-alert-message">
+        <slot>{{message}}</slot>
+      </div>
       <div class="mp-alert-footer">
         <button class="mp-button" @click="handleClick">{{text}}</button>
       </div>
@@ -13,6 +15,13 @@
 export default {
   name: 'MPAlert',
   props: {
+    header: {
+      type: String
+    },
+    message: {
+      type: String,
+      // required: true
+    },
     text: {
       type: String,
       default: '确定'
@@ -21,7 +30,7 @@ export default {
   data() {
     return {
       visible: false
-    }
+    };
   },
   watch: {
     visible(value) {
@@ -56,7 +65,7 @@ export default {
   border-radius: 12px;
 }
 
-.mp-alert-content {
+.mp-alert-message {
     position: relative;
     min-height: 18px;
     padding: 20px 40px;
@@ -65,7 +74,7 @@ export default {
     font-size: 34px; /*px*/
 }
 
-.mp-alert-content:after {
+.mp-alert-message:after {
     content: " ";
     position: absolute;
     left: 0;

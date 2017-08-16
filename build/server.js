@@ -9,7 +9,7 @@ const log = console.log;
 const app = express();
 const compiler = webpack(config);
 
-log('starting');
+log('server starting');
 
 const devMiddleware = webpackDevMiddleware(compiler, {
   contentBase: path.resolve(__dirname, '../example'),

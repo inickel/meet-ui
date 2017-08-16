@@ -3,7 +3,8 @@ import Vue from 'vue';
 
 const Constructor = Vue.extend(alert);
 
-Constructor.prototype.show = function() {
+Constructor.prototype.show = function(message) {
+  this.message = message
   this.visible = true;
 };
 
@@ -13,10 +14,9 @@ Constructor.prototype.hide = function() {
 
 const Singleton = new Constructor({});
 
-Singleton.$mount();
-
 const onShow = function() {
   Vue.nextTick(() => {
+    Singleton.$mount();    
     document.body.appendChild(Singleton.$el);
   });
 };

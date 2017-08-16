@@ -12,7 +12,7 @@
       </slot>
     </div>
     <div class="mp-row-text">
-      <slot name="text">text</slot>
+      <slot name="text">{{text}}</slot>
     </div>
     <div class="mp-row-arrow"></div>
   </section>
@@ -23,6 +23,9 @@
 export default {
   name: 'MPRow',
   props: {
+    text: {
+      type: String
+    },
     label: {
       type: String,
       default: 'label'

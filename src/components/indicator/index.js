@@ -16,7 +16,7 @@ const Singleton = new Constructor({
 });
 
 const Indicator = () => {
-
+  Indicator.show();
 };
 
 Indicator.show = () => {

@@ -1,12 +1,13 @@
 <template>
   <div>
-    <mp-button @click="handleClick">{{text}}</mp-button>
-    <br />
-    <mp-button @click="openIndicator">indicator</mp-button>
-    <br />
-    <mp-button @click="openAlert">alert</mp-button>
-    <br />
-    <mp-button @click="openConfrim">confirm</mp-button>
+    <mp-button-group>
+      <mp-button @click="handleClick">{{text}}</mp-button>
+      <mp-button @click="openIndicator" customClass="active">indicator</mp-button>
+      <mp-button @click="openAlert">alert</mp-button>
+      <mp-button @click="openConfrim">confirm</mp-button>
+    </mp-button-group>
+    <mp-button-group :buttons="buttons">
+    </mp-button-group>
     <mp-row label="标题">
       <template slot="text">test-row</template>
     </mp-row>
@@ -21,6 +22,12 @@
         <mp-switch v-model="switchValue" @change="onSwitchChange"></mp-switch>
       </template>
     </mp-row>
+    <mp-checkbox :title="checkboxTitle" :options="checkboxOptions" :value="checkboxValue" @change="onCheckboxChange">
+    </mp-checkbox>
+    
+    <mp-radiobox align="right" name="radio" :title="radioboxTitle" :options="radioboxOptions" :value="radioboxValue" @change="onCheckboxChange">
+    </mp-radiobox>
+    
   </div>
 
 </template>
@@ -29,8 +36,43 @@ export default {
   name: 'App',
   data() {
     return {
+      buttons: [
+        { 
+          text: 'xxx'
+        },
+        { 
+          text: '123'
+        }
+      ],
       switchValue: false,
-      text: 'toast'
+      text: 'toast',
+      checkboxValue: [1, 2],
+      checkboxTitle: 'checkbox',
+      checkboxOptions: [
+        {
+          label: '11asd',
+          value: 1,
+          checked: false
+        },
+        {
+          label: '2纯啊色的俄方',
+          value: 2,
+          checked: true,
+          disabled: true
+        }
+      ],
+      radioboxTitle: 'radiobox',
+      radioboxValue: 0,
+      radioboxOptions: [
+         {
+          label: '11asd',
+          value: 1
+        },
+        {
+          label: '2纯啊色的俄方',
+          value: 2
+        }
+      ]
     };
   },
   methods: {
@@ -44,18 +86,21 @@ export default {
     },
     openIndicator() {
       console.log('Indicator');
-      this.$Indicator.show();
+      this.indicator.show();
       setTimeout(() => {
-        this.$Indicator.hide();
+        this.indicator.hide();
       }, 2000);
     },
     openAlert() {
       console.log('Alert');
-      this.$Alert('xxx');
+      this.alert('xxx');
     },
     openConfrim() {
       console.log('Confirm');
-      this.$Confirm('xxx');
+      this.confirm('xxx');
+    },
+    onCheckboxChange(e) {
+      console.log(e);
     }
   }
 }
